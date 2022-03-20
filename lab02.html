@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <head>
+      <link rel="stylesheet" href="./main.css" />
+    </head>
+
+    <script type="text/babel">
+      const rootElement = document.getElementById("root");
+
+      const Page = ({ children }) => <html>{children}</html>;
+
+      const Titulo = ({ children }) => <h1 class="title">{children}</h1>;
+      const Button = () => (
+        <button class="search">
+          <h2>Search</h2>
+        </button>
+      );
+      const Card = ({ children }) => <body>{children}</body>;
+
+      const Header = ({ children }) => <header>{children}</header>;
+
+      const Contact = ({ photo, name, profession }) => (
+        <div class="contact">
+          <div class="user">
+            <img class="photo" src={photo} />
+            <div class="nameProf">
+              <h2 class="name">{name}</h2>
+              <h3 class="prof">{profession}</h3>
+            </div>
+          </div>
+          <div class="buttonsContact">
+            <button class="buttonContact">Call</button>
+            <button class="buttonContact"> Send E-mail</button>
+          </div>
+        </div>
+      );
+
+      const Footer = ({ children }) => <h3 class="footer">{children}</h3>;
+
+      const element = (
+        <Page>
+          <Header>
+            <Titulo>CONTACTS</Titulo>
+            <Button />
+          </Header>
+          <Card>
+            <Contact
+              photo="https://media-exp1.licdn.com/dms/image/C4D03AQFNuB21VA358w/profile-displayphoto-shrink_200_200/0/1647211052970?e=1652918400&v=beta&t=WlKDPo6TPC857dNUbfEGPUqSgcSKRUdZ993QYY6_syI"
+              name="Tom James"
+              profession="Programer"
+            />
+            <Contact
+              photo="https://media-exp1.licdn.com/dms/image/C4D03AQFNuB21VA358w/profile-displayphoto-shrink_200_200/0/1647211052970?e=1652918400&v=beta&t=WlKDPo6TPC857dNUbfEGPUqSgcSKRUdZ993QYY6_syI"
+              name="Alessa Smith"
+              profession="Manager"
+            />
+            <Contact
+              photo="https://media-exp1.licdn.com/dms/image/C4D03AQFNuB21VA358w/profile-displayphoto-shrink_200_200/0/1647211052970?e=1652918400&v=beta&t=WlKDPo6TPC857dNUbfEGPUqSgcSKRUdZ993QYY6_syI"
+              name="Kate Minard"
+              profession="Web Designer"
+            />
+            <Contact
+              photo="https://media-exp1.licdn.com/dms/image/C4D03AQFNuB21VA358w/profile-displayphoto-shrink_200_200/0/1647211052970?e=1652918400&v=beta&t=WlKDPo6TPC857dNUbfEGPUqSgcSKRUdZ993QYY6_syI"
+              name="John Tudor"
+              profession="Database Admin"
+            />
+          </Card>
+
+          <Footer>We found 23 contacts</Footer>
+        </Page>
+      );
+
+      ReactDOM.render(element, rootElement);
+    </script>
+  </body>
+</html>
